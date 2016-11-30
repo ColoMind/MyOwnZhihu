@@ -40,10 +40,16 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 android.R.color.holo_green_light
         );
         news_list = (ListView) findViewById(R.id.news_list);
+        adapter = new NewsAdapter(this,R.layout.newslist_item);
         news_list.setAdapter(adapter);
         news_list.setOnItemClickListener(this);
         setTitle(getTime());
-
+        if (isConnected){
+            new NewsLoadTask(adapter).execute();
+        }
+        else {
+            Utility.NoNetworkWarning(this);
+        }
     }
 
     @Override
