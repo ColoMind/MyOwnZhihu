@@ -24,7 +24,7 @@ public class JsonHelper {
             JSONObject newsInJson = newsArray.getJSONObject(i);
             int id = newsInJson.optInt("id");
             String title = newsInJson.optString("title");
-            String image = null;
+            String image = "";
             if (newsInJson.has("images")){
                 image = (String) newsInJson.getJSONArray("images").get(0);
             }

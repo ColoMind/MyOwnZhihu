@@ -3,4 +3,6 @@
     <string name="date_format">EEE, MMM dd, yyyy</string>
     <string name="Setting">Setting</string>
     <string name="Star">Star</string>
+    <string name="Favorite">Favorite</string>
+    <string name="action_bar_lable">Daily</string>
 </resources>

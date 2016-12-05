@@ -13,9 +13,9 @@
         <ListView
             android:id="@+id/news_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            style="@style/NewsListStyle"/>
 
-        </ListView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 

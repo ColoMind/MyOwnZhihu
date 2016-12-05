@@ -14,10 +14,11 @@ import colomind.com.myownzhihu.Http.JsonHelper;
 /**
  * Created by Administrator on 2016/11/5.
  */
-
+                                                // 传入后台的参数， 给进度条的参数， 返回的结果类型
 public class NewsDetailLoadTask extends AsyncTask<Integer,Void,NewsDetail> {
     private WebView mWebView;
     public NewsDetailLoadTask(WebView webView){ this.mWebView = webView;}
+
     @Override
     protected NewsDetail doInBackground(Integer ... params){
         NewsDetail mNewsDetail = null;
@@ -31,10 +32,11 @@ public class NewsDetailLoadTask extends AsyncTask<Integer,Void,NewsDetail> {
             return mNewsDetail;
         }
     }
+
     @Override
     protected void onPostExecute(NewsDetail mNewsDetail){
         String headerImage;
-        if ( mNewsDetail.getImage()== null || mNewsDetail.getImage() == ""){
+        if (mNewsDetail.getImage() == null || mNewsDetail.getImage() == "") {
             headerImage = "file:///android_asset/news_detail_header_image.jpg";
         }
         else {
@@ -42,9 +44,9 @@ public class NewsDetailLoadTask extends AsyncTask<Integer,Void,NewsDetail> {
         }
         StringBuilder sBuild = new StringBuilder();
         sBuild.append("<div class=\"img-wrap\">")
-                .append("<h1 class=\"headline-title\"")
+                .append("<h1 class=\"headline-title\">")
                 .append(mNewsDetail.getTitle()).append("</h1>")
-                .append("<span class =\"ima-source\">")
+                .append("<span class=\"img-source\">")
                 .append(mNewsDetail.getImage_source()).append("</span>")
                 .append("<img src=\"").append(headerImage)
                 .append("\" alt=\"\">")

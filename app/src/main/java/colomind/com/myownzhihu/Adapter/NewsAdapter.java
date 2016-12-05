@@ -10,6 +10,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -25,11 +26,11 @@ import colomind.com.myownzhihu.R;
 public class NewsAdapter extends ArrayAdapter<News> {
     private LayoutInflater mInflater;
     private int resource;
-    private ImageLoader imageLoader;
+    private ImageLoader imageLoader = ImageLoader.getInstance();
     private DisplayImageOptions options = new DisplayImageOptions.Builder()
             .showImageOnLoading(R.drawable.no_image)
-            .showImageForEmptyUri(R.drawable.no_image)
             .showImageOnFail(R.drawable.no_image)
+            .showImageForEmptyUri(R.drawable.no_image)
             .cacheInMemory(true)
             .cacheOnDisk(true)
             .considerExifParams(true)
@@ -50,8 +51,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
     public View getView(int position, View convertView, ViewGroup parent){
         ViewHolder holder;
         if (convertView == null){
-            holder = new ViewHolder();
             convertView = mInflater.inflate(resource,null);
+            holder = new ViewHolder();
             holder.newsImage = (ImageView) convertView.findViewById(R.id.news_image);
             holder.newsTitle = (TextView) convertView.findViewById(R.id.news_title);
             convertView.setTag(holder);
